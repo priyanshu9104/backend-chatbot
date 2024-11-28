@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors(
   {
-    origin: "https://chatbot-frontend-five-iota.vercel.app/",
+    origin: "https://chatbot-frontend-five-iota.vercel.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
   }
