@@ -12,7 +12,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors(
   {
-    origin: "https://chatbot-frontend-five-iota.vercel.app/",
+    origin: {"https://chatbot-frontend-five-iota.vercel.app/"},
+     methods: {"POST", "GET", "DELETE", "PUT"},
+    credentials: true
   }
 ));
 
@@ -24,13 +26,14 @@ app.get("/", (req, res) => {
 });
 
 // Database connection
-mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = () =>{
+  mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
-
+}
+db();
 const PORT = process.env.PORT || 5000;
-app();
+// app();
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
