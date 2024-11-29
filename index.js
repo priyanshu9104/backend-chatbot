@@ -26,23 +26,27 @@ app.get("/", (req, res) => {
 });
 
 // Database connection
-const db = () =>{
+// const db = () =>{
 
-  try {
-    mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("Connected to MongoDB"))
+  // try {
+    // mongoose.connect(process.env.MONGO_URI)
+    // .then(() => console.log("Connected to MongoDB"))
+    mongoose.connect('mongodb+srv://IronMan:Aefmr703VCT3GAqT@cluster0.oxjghzg.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
     // app.listen(5000, () => {
     //   console.log("Server listening on 5000 http://localhost:5000");
     // });
-  } catch (err) {
-    console.log(err)
-  }
+  // } catch (err) {
+  //   console.log(err)
+  // }
   
   
   
   // .catch((err) => console.error("MongoDB connection error:", err));
-}
-db();
+// }
+// db();
+
 const PORT = process.env.PORT || 5000;
 // app();
 
