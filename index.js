@@ -29,9 +29,9 @@ app.get("/", (req, res) => {
 // const db = () =>{
 
   // try {
-    // mongoose.connect(process.env.MONGO_URI)
+    // mongoose.connect()
     // .then(() => console.log("Connected to MongoDB"))
-    mongoose.connect('mongodb+srv://IronMan:Aefmr703VCT3GAqT@cluster0.oxjghzg.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
     // app.listen(5000, () => {
